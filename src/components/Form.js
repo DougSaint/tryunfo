@@ -13,7 +13,8 @@ export default class Form extends React.Component {
       // hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
-      onSaveButtonClick } = this.props;
+      onSaveButtonClick,
+      leftPoints } = this.props;
 
     return (
       <form>
@@ -66,7 +67,11 @@ export default class Form extends React.Component {
             onChange={ onInputChange }
           />
         </label>
-        <p> Pontos restantes </p>
+        <p>
+          {' '}
+          Pontos restantes :
+          {leftPoints}
+        </p>
         <label className="d-flex" htmlFor="image">
           Image
           <input
@@ -104,7 +109,7 @@ export default class Form extends React.Component {
         <button
           data-testid="save-button"
           className="btn"
-          type="button"
+          type="submit"
           disabled={ isSaveButtonDisabled }
           onClick={ onSaveButtonClick }
         >
@@ -118,16 +123,16 @@ export default class Form extends React.Component {
 }
 
 Form.propTypes = {
-  cardAttr1: PropTypes.number,
-  cardAttr2: PropTypes.number,
-  cardAttr3: PropTypes.number,
+  cardAttr1: PropTypes.string,
+  cardAttr2: PropTypes.string,
+  cardAttr3: PropTypes.string,
   cardDescription: PropTypes.string,
   cardImage: PropTypes.string,
   cardName: PropTypes.string,
   cardRare: PropTypes.string,
-  cardTrunfo: PropTypes.any,
+  cardTrunfo: PropTypes.bool,
   hasTrunfo: PropTypes.any,
-  isSaveButtonDisabled: PropTypes.any,
-  onInputChange: PropTypes.any,
+  isSaveButtonDisabled: PropTypes.func,
+  onInputChange: PropTypes.func,
   onSaveButtonClick: PropTypes.any,
 }.isRequired;
