@@ -1,8 +1,8 @@
-
-input,textarea {
-    display: block;
-    margin: 10px;
+input, textarea {
+  display: block;
+  margin: 10px;
 }
-label{
-    margin-left: 20px;
+
+label {
+  margin-left: 20px;
 }
