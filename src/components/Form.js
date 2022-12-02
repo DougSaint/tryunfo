@@ -14,6 +14,7 @@ export default class Form extends React.Component {
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick } = this.props;
+
     return (
       <form>
         <label htmlFor="name" className="column">
@@ -21,7 +22,7 @@ export default class Form extends React.Component {
           <input
             type="text"
             data-testid="name-input"
-            name="name"
+            name="cardName"
             value={ cardName }
             onChange={ onInputChange }
           />
@@ -29,7 +30,7 @@ export default class Form extends React.Component {
         <label htmlFor="description" className="column">
           Descrição
           <textarea
-            name="description"
+            name="cardDescription"
             data-testid="description-input"
             value={ cardDescription }
             onChange={ onInputChange }
@@ -40,7 +41,7 @@ export default class Form extends React.Component {
           <input
             type="number"
             data-testid="attr1-input"
-            name="attr1"
+            name="cardAttr1"
             value={ cardAttr1 }
             onChange={ onInputChange }
           />
@@ -50,7 +51,7 @@ export default class Form extends React.Component {
           <input
             type="number"
             data-testid="attr2-input"
-            name="attr2"
+            name="cardAttr2"
             value={ cardAttr2 }
             onChange={ onInputChange }
           />
@@ -60,7 +61,7 @@ export default class Form extends React.Component {
           <input
             type="number"
             data-testid="attr3-input"
-            name="attr3"
+            name="cardAttr3"
             value={ cardAttr3 }
             onChange={ onInputChange }
           />
@@ -70,7 +71,7 @@ export default class Form extends React.Component {
           Image
           <input
             type="text"
-            name="image"
+            name="cardImage"
             data-testid="image-input"
             value={ cardImage }
             onChange={ onInputChange }
@@ -80,7 +81,7 @@ export default class Form extends React.Component {
           Raridade
           <select
             data-testid="rare-input"
-            name="rarity"
+            name="cardRare"
             onChange={ onInputChange }
             value={ cardRare }
           >
@@ -91,6 +92,7 @@ export default class Form extends React.Component {
         </label>
         <label className="d-flex" htmlFor="trunfo-input">
           <input
+            name="cardTrunfo"
             type="checkbox"
             data-testid="trunfo-input"
             id="trunfo-input"

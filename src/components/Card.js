@@ -14,9 +14,10 @@ export default class Card extends React.Component {
       // hasTrunfo,
     } = this.props;
     return (
-      <section>
-        <h3 data-testid="name-card">{cardName}</h3>
+      <section className="main-card">
+        <h3 data-testid="name-card" className="name-card">{cardName}</h3>
         <img
+          className="image-card"
           src={ cardImage }
           alt={ cardName }
           data-testid="image-card"
