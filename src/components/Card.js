@@ -15,21 +15,25 @@ export default class Card extends React.Component {
     } = this.props;
     return (
       <section className="main-card">
-        <h3 data-testid="name-card" className="name-card">{cardName}</h3>
+        <div className ="card-head">
+          <h3 data-testid="name-card" className="name-card">{cardName}</h3>
+        </div>
+        <p data-testid="rare-card" className ="rarity">{cardRare}</p>
         <img
           className="image-card"
           src={ cardImage }
           alt={ cardName }
           data-testid="image-card"
         />
-        <p data-testid="description-card">{cardDescription}</p>
-        <div>
-          <p data-testid="attr1-card">{cardAttr1}</p>
-          <p data-testid="attr2-card">{cardAttr2}</p>
-          <p data-testid="attr3-card">{cardAttr3}</p>
+        <div className='desc'>
+          <p data-testid="description-card">{cardDescription}</p>
         </div>
-        <p data-testid="rare-card">{cardRare}</p>
-        {cardTrunfo && <p data-testid="trunfo-card">Super Trunfo</p>}
+        <div className ="attributes">
+          <p>ATK: <span data-testid="attr1-card">{cardAttr1}</span> </p>
+          <p>HP: <span data-testid="attr2-card">{cardAttr2}</span></p>
+          <p>DEF: <span data-testid="attr3-card">{cardAttr3}</span> </p>
+        </div>
+        {cardTrunfo && <p data-testid="trunfo-card" className="super-trunfo">Super Trunfo</p>}
       </section>
     );
   }

@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+
+}
+
 .app {
   background-color: #e1f2d5;
   display: flex;
@@ -127,20 +132,97 @@ li {
   flex-direction: row;
 }
 
+
 .main-card {
+  background-color: gold;
   border: 1px solid black;
-  height: 50vh;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  height: 55vh;
+  position: relative;
   width: 25%;
 }
 
+.card-head {
+  background-color: green;
+  border-radius: 20px;
+  min-height: 4.5vh;
+  position: absolute;
+  top: 2%;
+  width: 85%;
+}
+
 .name-card {
-  background-color: #239725;
-  margin-top: 0;
-  padding: 5px 0;
+  color: #d5d5d5;
+  font: 600;
+  font-family: Impact , sans-serif;
+  margin: 5px 0;
   text-align: center;
-  width: 100%;
+}
+
+.rarity {
+  align-self: flex-end;
+  color: #5d1113;
+  font-family: monospace;
+  font-weight: 600;
+  margin-bottom: 0;
+  margin-top: 5px;
+  position: absolute;
+  right: 10%;
+  text-transform: capitalize;
+  top: 10%;
 }
 
 .image-card {
-  width: 70%;
+  border-radius: 15px;
+  height: auto;
+  position: absolute;
+  top: 16%;
+  width: 85%;
+}
+
+.desc {
+  background-color: green;
+  border-radius: 5px;
+  bottom: 8%;
+  display: block;
+  font-size: 0.7em;
+  margin: 5px auto 0;
+  position: absolute;
+  width: 85%;
+
+}
+
+
+.attributes {
+  background-color: blue;
+  border-radius: 20px;
+  bottom: 5px;
+  color: #d5d5d5;
+  display: flex;
+  height: 5%;
+  justify-content: space-around;
+  justify-self: flex-end;
+  margin-top: 0;
+  position: absolute;
+  width: 95%;
+}
+
+.attributes p {
+  margin: 0;
+  padding: 0;
+}
+
+.super-trunfo {
+  background-color: #5d1113;
+  border-style: inset;
+  color: gold;
+  font-family: monospace;
+  font-weight: 600;
+  left: 10%;
+  margin-bottom: 0;
+  position: absolute;
+  text-transform: capitalize;
+  top: 8%;
 }
