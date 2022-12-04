@@ -69,7 +69,7 @@ class App extends React.Component {
       cardDescription,
       cardImage,
       cardRare,
-      cardTrunfo
+      cardTrunfo,
     } = this.state;
 
     const card = {
