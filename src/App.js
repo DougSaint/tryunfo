@@ -10,9 +10,10 @@ const INITIAL_STATE = {
   cardAttr2: 0,
   cardAttr3: 0,
   cardImage: '',
-  cardRare: '',
-  cardTrunfo: false,
+  cardRare: 'normal',
   leftPoints: 210,
+  cardTrunfo: false,
+
 };
 
 class App extends React.Component {
@@ -86,8 +87,12 @@ class App extends React.Component {
     this.setState({ ...INITIAL_STATE });
   };
 
-  onInputChange = ({ target: { name, value } }) => {
-    this.setState({ [name]: value }, this.validateFields);
+  onInputChange = ({ target: { name, value, checked } }) => {
+    if (name === 'cardTrunfo') {
+      this.setState({ [name]: checked }, this.validateFields);
+    } else {
+      this.setState({ [name]: value }, this.validateFields);
+    }
   };
 
   render() {
