@@ -246,3 +246,8 @@ li {
   position: absolute;
   width: 120px;
 }
+
+.filter{
+  margin-left: 10%;
+  color: white;
+}
