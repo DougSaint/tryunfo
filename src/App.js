@@ -14,7 +14,7 @@ const INITIAL_STATE = {
   cardRare: 'normal',
   leftPoints: 210,
   cardTrunfo: false,
-
+  hasTrunfo: false,
 };
 
 class App extends React.Component {
@@ -87,13 +87,25 @@ class App extends React.Component {
       cardTrunfo,
       id: this.id,
     };
-    this.setState((prev) => ({ savedCards: [...prev.savedCards, card] }));
+    this.setState(
+      (prev) => ({ savedCards: [...prev.savedCards, card] }),
+      this.attSuperTrunfo,
+    );
     this.setState({ ...INITIAL_STATE });
   };
 
   deleteCard = (id) => {
     this.setState((prev) => ({ savedCards: prev.savedCards
-      .filter((card) => card.id !== id) }));
+      .filter((card) => card.id !== id) }), this.attSuperTrunfo);
+  };
+
+  attSuperTrunfo = () => {
+    const { savedCards } = this.state;
+    if (savedCards.some((card) => card.cardTrunfo)) {
+      this.setState({ hasTrunfo: true });
+    } else {
+      this.setState({ hasTrunfo: false });
+    }
   };
 
   onInputChange = ({ target: { name, value, checked } }) => {

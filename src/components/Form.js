@@ -10,14 +10,11 @@ export default class Form extends React.Component {
       cardAttr3,
       cardImage, cardRare,
       cardTrunfo,
-      // hasTrunfo,
+      hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
-      leftPoints,
-      savedCards } = this.props;
-
-    const findSuper = savedCards.some((card) => card.cardTrunfo);
+      leftPoints } = this.props;
 
     const defaultMessage = (
       <p className="warning">
@@ -117,7 +114,7 @@ export default class Form extends React.Component {
             <option value="muito raro">Muito raro</option>
           </select>
         </label>
-        { findSuper ? defaultMessage
+        { hasTrunfo ? defaultMessage
           : superTrunfo}
         <button
           data-testid="save-button"
