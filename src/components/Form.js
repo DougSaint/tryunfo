@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SuperTrunfo from './SuperTrunfo';
 
 export default class Form extends React.Component {
   render() {
@@ -19,10 +18,25 @@ export default class Form extends React.Component {
       savedCards } = this.props;
 
     const findSuper = savedCards.some((card) => card.cardTrunfo);
+
     const defaultMessage = (
       <p className="warning">
         Você já tem um Super Trunfo em seu baralho
       </p>);
+
+    const superTrunfo = (
+      <label className="d-flex" htmlFor="trunfo-input">
+        <input
+          name="cardTrunfo"
+          type="checkbox"
+          data-testid="trunfo-input"
+          id="trunfo-input"
+          checked={ cardTrunfo }
+          onChange={ onInputChange }
+        />
+        {' '}
+        Super Trybe Trunfo
+      </label>);
 
     return (
       <form>
@@ -104,7 +118,7 @@ export default class Form extends React.Component {
           </select>
         </label>
         { findSuper ? defaultMessage
-          : <SuperTrunfo onInputChange={ onInputChange } cardTrunfo={ cardTrunfo } />}
+          : superTrunfo}
         <button
           data-testid="save-button"
           className="btn"
