@@ -4,7 +4,7 @@
 }
 
 .app {
-  background-color: #e1f2d5;
+  background-color: #007f5f;
   display: flex;
   flex-flow: column nowrap;
   max-height: max-content;
@@ -22,6 +22,11 @@
   height: 100px;
   justify-content: space-around;
   width: 100%;
+}
+
+h1 {
+  color: #ffff3f;
+  text-align: center;
 }
 
 .header-container img {
@@ -68,7 +73,7 @@ select {
 }
 
 .container {
-  background-color: white;
+  background-color: #bfd200;
   border-radius: 10px;
   box-shadow: 5px 5px 10px black;
   display: flex;
@@ -231,4 +236,13 @@ li {
 
 .warning {
   color: red;
+}
+
+
+.deleteButton {
+  background-color: red;
+  bottom: -10vh;
+  height: 40px;
+  position: absolute;
+  width: 120px;
 }

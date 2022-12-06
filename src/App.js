@@ -2,6 +2,7 @@ import React from 'react';
 import Form from './components/Form';
 import './App.css';
 import Card from './components/Card';
+import ListCard from './components/ListCard';
 
 const INITIAL_STATE = {
   cardName: '',
@@ -17,6 +18,8 @@ const INITIAL_STATE = {
 };
 
 class App extends React.Component {
+  id = 0;
+
   constructor() {
     super();
     this.state = {
@@ -61,7 +64,7 @@ class App extends React.Component {
 
   saveCard = (e) => {
     e.preventDefault();
-
+    this.id += 1;
     const {
       cardAttr1,
       cardAttr2,
@@ -82,9 +85,15 @@ class App extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      id: this.id,
     };
     this.setState((prev) => ({ savedCards: [...prev.savedCards, card] }));
     this.setState({ ...INITIAL_STATE });
+  };
+
+  deleteCard = (id) => {
+    this.setState((prev) => ({ savedCards: prev.savedCards
+      .filter((card) => card.id !== id) }));
   };
 
   onInputChange = ({ target: { name, value, checked } }) => {
@@ -96,6 +105,7 @@ class App extends React.Component {
   };
 
   render() {
+    const { savedCards } = this.state;
     return (
       <div className="app">
         <h1>Tryunfo</h1>
@@ -111,6 +121,8 @@ class App extends React.Component {
             { ...this.state }
           />
         </main>
+        <h1>Lista de cartas</h1>
+        <ListCard cards={ savedCards } deleteCard={ this.deleteCard } />
       </div>
     );
   }

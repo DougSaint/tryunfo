@@ -11,8 +11,23 @@ export default class Card extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
+      deleteButton,
       // hasTrunfo,
+      deleteCard,
+      id,
     } = this.props;
+
+    const deleteBtn = (
+      <button
+        className="deleteButton"
+        onClick={ () => { deleteCard(id); } }
+        data-testid="delete-button"
+        type="button"
+      >
+        {' '}
+        Excluir
+      </button>);
+
     return (
       <section className="main-card">
         <div className="card-head">
@@ -44,6 +59,8 @@ export default class Card extends React.Component {
         </div>
         {cardTrunfo
         && <p data-testid="trunfo-card" className="super-trunfo">Super Trunfo</p>}
+        {deleteButton
+        && deleteBtn }
       </section>
     );
   }
