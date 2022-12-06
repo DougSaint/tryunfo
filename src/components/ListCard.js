@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from './Card';
 import PropTypes from 'prop-types';
+import Card from './Card';
 
 export default class ListCard extends React.Component {
   render() {
