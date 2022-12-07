@@ -8,33 +8,59 @@ export default class ListCard extends React.Component {
 
     this.state = {
       nameFilter: '',
+      rareFilter: 'todas',
     };
 
     this.onInputChange = this.onInputChange.bind(this);
+    this.filterRarity = this.filterRarity.bind(this);
   }
 
   onInputChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
   };
 
+  filterRarity = (cards) => {
+    const { rareFilter } = this.state;
+    if (rareFilter === 'todas') {
+      return cards;
+    }
+    return cards.filter((card) => card.cardRare === rareFilter);
+  };
+
   render() {
     const { cards, deleteCard } = this.props;
-    const { nameFilter } = this.state;
+    const { nameFilter, rareFilter } = this.state;
     return (
       <>
-        <label htmlFor="filter" className="d-flex filter">
-          Filtro de busca
-          <input
-            name="nameFilter"
-            type="text"
-            data-testid="name-filter"
-            onChange={ this.onInputChange }
-            value={ nameFilter }
-          />
-        </label>
+        <div className="d-flex">
+          <label htmlFor="filter" className="d-flex filter">
+            Nome
+            <input
+              name="nameFilter"
+              type="text"
+              data-testid="name-filter"
+              onChange={ this.onInputChange }
+              value={ nameFilter }
+            />
+          </label>
 
+          <label htmlFor="rareFilter" className="d-flex filter">
+            Raridade: &nbsp;&nbsp;
+            <select
+              data-testid="rare-filter"
+              name="rareFilter"
+              onChange={ this.onInputChange }
+              value={ rareFilter }
+            >
+              <option value="todas">Todas</option>
+              <option value="normal">Normal</option>
+              <option value="raro">Raro</option>
+              <option value="muito raro">Muito raro</option>
+            </select>
+          </label>
+        </div>
         <div className="container">
-          {cards.filter((card) => card.cardName.includes(nameFilter))
+          {this.filterRarity(cards).filter((card) => card.cardName.includes(nameFilter))
             .map((card) => (<Card
               { ...card }
               key={ card.id }
