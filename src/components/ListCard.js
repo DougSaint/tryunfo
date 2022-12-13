@@ -9,6 +9,8 @@ export default class ListCard extends React.Component {
     this.state = {
       nameFilter: '',
       rareFilter: 'todas',
+      trunfoFilter: false,
+      disabledFilter: false,
     };
 
     this.onInputChange = this.onInputChange.bind(this);
@@ -19,8 +21,18 @@ export default class ListCard extends React.Component {
     this.setState({ [name]: value });
   };
 
+  onInputChangeChekBox = ({ target: { name, checked } }) => {
+    if (checked) {
+      this.setState({ disabledFilter: true });
+    } else {
+      this.setState({ disabledFilter: false });
+    }
+    this.setState({ [name]: checked });
+  };
+
   filterRarity = (cards) => {
-    const { rareFilter } = this.state;
+    const { rareFilter, trunfoFilter } = this.state;
+    if (trunfoFilter) return cards.filter((card) => card.cardTrunfo);
     if (rareFilter === 'todas') {
       return cards;
     }
@@ -29,7 +41,7 @@ export default class ListCard extends React.Component {
 
   render() {
     const { cards, deleteCard } = this.props;
-    const { nameFilter, rareFilter } = this.state;
+    const { nameFilter, rareFilter, trunfoFilter, disabledFilter } = this.state;
     return (
       <>
         <div className="d-flex">
@@ -41,6 +53,7 @@ export default class ListCard extends React.Component {
               data-testid="name-filter"
               onChange={ this.onInputChange }
               value={ nameFilter }
+              disabled={ disabledFilter }
             />
           </label>
 
@@ -51,6 +64,7 @@ export default class ListCard extends React.Component {
               name="rareFilter"
               onChange={ this.onInputChange }
               value={ rareFilter }
+              disabled={ disabledFilter }
             >
               <option value="todas">Todas</option>
               <option value="normal">Normal</option>
@@ -58,8 +72,19 @@ export default class ListCard extends React.Component {
               <option value="muito raro">Muito raro</option>
             </select>
           </label>
+          <label htmlFor="trunfoFilter" className="d-flex white">
+            Super Trunfo
+            <input
+              name="trunfoFilter"
+              type="checkbox"
+              data-testid="trunfo-filter"
+              value={ trunfoFilter }
+              onChange={ this.onInputChangeChekBox }
+            />
+          </label>
         </div>
         <div className="container">
+
           {this.filterRarity(cards).filter((card) => card.cardName.includes(nameFilter))
             .map((card) => (<Card
               { ...card }
