@@ -1,7 +1,7 @@
 <h1 style="text-align: center;">Tryunfo</h1>
   
 
-<h3>Você támbem pode testar a aplicação neste <a href="https://dougsaint.github.io/tryunfo/"></a></h3>
+<h3>Você támbem pode testar a aplicação neste <a href="https://dougsaint.github.io/tryunfo/">Link</a></h3>
 
 O TrybeTunes se trata de uma ferramenta que te possibilita criar cartas, é possível criar suas cartas, escolhendo da imagem, ataque, defesa, e dar a descrição das mesmas, este projeto foi criado para desenvolver algumas habilidades como utilizar o React transferindo informações para componentes diferentes, salvando informações no localStorage e recuperando elas ao iniciar a aplicação!.
 
