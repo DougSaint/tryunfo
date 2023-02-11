@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import Form from './components/Form';
 import './App.css';
 import Card from './components/Card';
@@ -120,6 +121,9 @@ class App extends React.Component {
     const { savedCards } = this.state;
     return (
       <div className="app">
+        <Helmet>
+          <title>Tryunfo</title>
+        </Helmet>
         <h1>Tryunfo</h1>
         <main className="container">
           <Form
